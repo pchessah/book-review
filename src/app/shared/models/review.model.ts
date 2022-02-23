@@ -3,4 +3,6 @@ export interface Review {
   author: string;
   review: string;
   rating: number;
+  userId?: string;
+  userEmail?: string;
 }

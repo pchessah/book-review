@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
+import { MatDialogRef } from '@angular/material/dialog';
 import { Review } from 'src/app/shared/models/review.model';
  
 
@@ -11,8 +12,10 @@ import { Review } from 'src/app/shared/models/review.model';
 export class AddReviewComponent implements OnInit {
 
   reviewForm!: FormGroup;
+  ratingValues = [1, 2, 3, 4, 5];
 
-  constructor(private _fb: FormBuilder) { }
+  constructor(private _fb: FormBuilder,
+              private _dialogRef: MatDialogRef<AddReviewComponent>) { }
 
   ngOnInit(): void {
     this.reviewForm = this._fb.group({
@@ -23,6 +26,8 @@ export class AddReviewComponent implements OnInit {
     });     
   }
 
-  onSubmit(review: Review) {}
+  onSubmit(review: Review) {
+    this._dialogRef.close(review);
+  }
 
 }

@@ -1,18 +1,33 @@
-<form formGroupName="reviewForm" (ngSubmit)="onSubmit(reviewForm.value)">
+<form [formGroup]="reviewForm" (ngSubmit)="onSubmit(reviewForm.value)">
   <div class="form-group">
-    <label for="title">Book title</label>
-    <input type="text" class="form-control" id="title" name="title" formControlName="title" required>
+    <mat-form-field appearance="fill">
+      <mat-label>Book Title</mat-label>
+      <input matInput type="text" id="title" name="title" formControlName="title" required>
+    </mat-form-field>
   </div>
   <div class="form-group">
-    <label for="author">Author</label>
-    <input type="author" class="form-control" id="author" name="author" formControlName="author" required>
+    <mat-form-field appearance="fill">
+      <mat-label>Book Author</mat-label>
+      <input matInput type="author" id="author" name="author" formControlName="author" required>
+    </mat-form-field>
   </div>
   <div class="form-group">
-    <label for="review">Review</label>
-    <textarea class="form-control" id="review" name="review" formControlName="review" required></textarea>
+    <mat-form-field appearance="fill">
+      <label for="review">Review</label>
+      <textarea matInput id="review" name="review" formControlName="review" required></textarea>
+    </mat-form-field>
   </div>
   <div class="form-group">
-    <label for="rating">Rating</label>
-    <select class="form-control" id="rating" name="rating" formControlName="control"></select>
+    <mat-form-field appearance="fill">
+      <mat-label>Rating</mat-label>
+      <mat-select formControlName="rating">
+        <mat-option *ngFor="let ratingValue of ratingValues" [value]="ratingValue">{{ratingValue}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div fxLayout="row" fxLayoutAlign="end center">
+
+    <button mat-raised-button type="submit" color="primary" [disabled]="!reviewForm.valid">Submit Review</button>
   </div>
 </form>

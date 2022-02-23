@@ -1,30 +1,35 @@
 <div style="width: 100%;" fxLayout="row" fxLayoutGap="10px" class="m-2" *ngIf="authService.userData as user">
   <mat-card fxFlex="30" fxLayout="column" fxLayoutGap="10px" class="m-2">
-    <span mat-raised-button (click)="authService.SignOut()">
-      <i class="fas fa-sign-out-alt"></i>Log out
-    </span>
+    <img
+      src="{{(user.photoURL) ? user.photoURL 
+                              : 'https://img.favpng.com/25/13/19/samsung-galaxy-a8-a8-user-login-telephone-avatar-png-favpng-dqKEPfX7hPbc6SMVUCteANKwj.jpg'}}"
+      alt="{{user.displayName}}">
+
+    <h5>Hello: <strong>{{user.email}}</strong></h5>
 
     <hr>
 
-     <img src="{{(user.photoURL) ? user.photoURL 
-                                 : 'https://img.favpng.com/25/13/19/samsung-galaxy-a8-a8-user-login-telephone-avatar-png-favpng-dqKEPfX7hPbc6SMVUCteANKwj.jpg'}}"
-          alt="{{user.displayName}}">
-
-     <h6>Hello: <strong>{{user.email}}</strong></h6>        
+    <button mat-raised-button color="warn" (click)="authService.SignOut()">
+      <i class="fas fa-sign-out-alt"></i>Log out
+    </button>
 
   </mat-card>
 
   <mat-card fxFlex="65" fxLayout="column" fxLayoutGap="10px" class="m-2">
-    <button (click)="openAddReviewDialog()" mat-raised-button>
+
+    <img src="https://i.pinimg.com/originals/d9/20/52/d920527f39800943d9fc5f5264acc866.jpg" alt="">
+
+    <h4><strong>Book Reviews Dashboard</strong></h4>
+    
+    <hr>
+
+    <button color="primary" (click)="openAddReviewDialog()" mat-raised-button>
       Add Review
     </button>
   </mat-card>
 
 </div>
 
-<mat-card>
+<mat-card class="m-2">
   Table for reviews
 </mat-card>
-
-
-
