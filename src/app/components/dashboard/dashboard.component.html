@@ -1,0 +1,30 @@
+<div style="width: 100%;" fxLayout="row" fxLayoutGap="10px" class="m-2" *ngIf="authService.userData as user">
+  <mat-card fxFlex="30" fxLayout="column" fxLayoutGap="10px" class="m-2">
+    <span mat-raised-button (click)="authService.SignOut()">
+      <i class="fas fa-sign-out-alt"></i>Log out
+    </span>
+
+    <hr>
+
+     <img src="{{(user.photoURL) ? user.photoURL 
+                                 : 'https://img.favpng.com/25/13/19/samsung-galaxy-a8-a8-user-login-telephone-avatar-png-favpng-dqKEPfX7hPbc6SMVUCteANKwj.jpg'}}"
+          alt="{{user.displayName}}">
+
+     <h6>Hello: <strong>{{user.email}}</strong></h6>        
+
+  </mat-card>
+
+  <mat-card fxFlex="65" fxLayout="column" fxLayoutGap="10px" class="m-2">
+    <button (click)="openAddReviewDialog()" mat-raised-button>
+      Add Review
+    </button>
+  </mat-card>
+
+</div>
+
+<mat-card>
+  Table for reviews
+</mat-card>
+
+
+
