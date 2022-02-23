@@ -13,26 +13,29 @@ import { Review } from 'src/app/shared/models/review.model';
 export class DashboardComponent implements OnInit {
 
   constructor(public authService: AuthService,
-              public dialog: MatDialog,
-              private _reviewService: ReviewsService) { }
+    public dialog: MatDialog,
+    private _reviewService: ReviewsService) { }
 
-  ngOnInit(): void {  }
+  ngOnInit(): void { }
 
   openAddReviewDialog() {
-    const dialogRef = this.dialog.open(AddReviewComponent, {width: '1000px'});
+    const dialogRef = this.dialog.open(AddReviewComponent, { width: '1000px', data: { mode: 'create' }});
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         const resultObj = {
-          title: result.title,
-          review: result.review,
-          rating: result.rating,
-          author: result.author,
-          userId:   this.authService.userData.uid,
-          userEmail:   this.authService.userData.email
+          title: result.review.title,
+          review: result.review.review,
+          rating: result.review.rating,
+          author: result.review.author,
+          id: result.review.id,
+          userId: this.authService.userData.uid,
+          userEmail: this.authService.userData.email
         } as Review;
 
-        this._reviewService.addReview(resultObj);
+        if (result.mode == 'create') {
+          this._reviewService.addReview(resultObj);
+        }
       }
     });
 

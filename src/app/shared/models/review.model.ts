@@ -5,4 +5,5 @@ export interface Review {
   rating: number;
   userId?: string;
   userEmail?: string;
+  id: string;
 }

@@ -16,7 +16,11 @@ export class ReviewsService {
    }
 
    addReview(review: Review) {
-     return this.reviewsRef.add(review);
+     return this.reviewsRef.doc(review.id).set(review);
+   }
+
+   editReview(review: Review) {
+      return this.reviewsRef.doc(review.id).update(review);
    }
 
    getAllReviews() {
