@@ -1,4 +1,5 @@
 <form [formGroup]="reviewForm" (ngSubmit)="onSubmit(reviewForm.value)">
+
   <div class="form-group">
     <mat-form-field appearance="fill">
       <mat-label>Book Title</mat-label>
@@ -26,8 +27,14 @@
     </mat-form-field>
   </div>
 
-  <div fxLayout="row" fxLayoutAlign="end center">
-
-    <button mat-raised-button type="submit" color="primary" [disabled]="!reviewForm.valid">Submit Review</button>
+  <div class="form-group">
+   <app-uploads (uploadFilesUpdated)="updateFiles($event)" [basePath]="basePath"></app-uploads>
   </div>
+
+  <div fxLayout="row" fxLayoutAlign="end center">
+    <button mat-raised-button type="submit" color="primary" [disabled]="!reviewForm.valid">
+      Submit {{data.mode == 'create' ? '' : 'Edited'}} Review
+    </button>
+  </div>
+
 </form>

@@ -31,6 +31,8 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
 import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
 import { AddReviewComponent } from './components/add-review/add-review.component';
 import { ReviewsTableComponent } from './components/reviews-table/reviews-table.component';
+import { UploadsComponent } from './components/uploads/uploads.component';
+import { FileUploadService } from './shared/services/file-upload.service';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,8 @@ import { ReviewsTableComponent } from './components/reviews-table/reviews-table.
     ForgotPasswordComponent,
     VerifyEmailComponent,
     AddReviewComponent,
-    ReviewsTableComponent
+    ReviewsTableComponent,
+    UploadsComponent
   ],
 
   imports: [
@@ -65,7 +68,7 @@ import { ReviewsTableComponent } from './components/reviews-table/reviews-table.
     BrowserAnimationsModule,
   ],
 
-  providers: [AuthService, ReviewsService],
+  providers: [AuthService, ReviewsService, FileUploadService],
 
   bootstrap: [AppComponent]
 })
