@@ -32,12 +32,13 @@ export class ReviewsTableComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result && result.mode == 'edit') {
-
         this._reviewService.editReview(result.review);
-
       }
-
     });
+  }
+
+  deleteReview(review: Review) {
+    confirm('Are you sure you want to delete this review?') ? this._reviewService.deleteReview(review) : null;    
   }
 
 }

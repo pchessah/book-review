@@ -26,4 +26,8 @@ export class ReviewsService {
    getAllReviews() {
      return this.reviewsRef.valueChanges();
    }
+
+   deleteReview(review: Review) {
+      return this.reviewsRef.doc(review.id).delete();
+    }
 }
