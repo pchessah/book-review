@@ -1,5 +1,5 @@
-<div style="width: 100%;" fxLayout="row" fxLayoutGap="10px" class="m-2" *ngIf="authService.userData as user">
-  <mat-card fxFlex="30" fxLayout="column" fxLayoutGap="10px" class="m-2">
+<div style="width: 100%;" fxLayout="row" fxLayoutAlign="space-between center" *ngIf="authService.userData as user">
+  <mat-card fxFlex="35" fxLayout="column" fxLayoutGap="10px" class="m-2">
     <img
       src="{{(user.photoURL) ? user.photoURL 
                               : 'https://img.favpng.com/25/13/19/samsung-galaxy-a8-a8-user-login-telephone-avatar-png-favpng-dqKEPfX7hPbc6SMVUCteANKwj.jpg'}}"
@@ -15,12 +15,12 @@
 
   </mat-card>
 
-  <mat-card fxFlex="65" fxLayout="column" fxLayoutGap="10px" class="m-2">
+  <mat-card fxFlex="65" fxLayout="column"  fxLayoutGap="10px" class="m-2">
 
     <img src="https://i.pinimg.com/originals/d9/20/52/d920527f39800943d9fc5f5264acc866.jpg" alt="">
 
     <h4><strong>Book Reviews Dashboard</strong></h4>
-    
+
     <hr>
 
     <button color="primary" (click)="openAddReviewDialog()" mat-raised-button>
@@ -31,5 +31,5 @@
 </div>
 
 <mat-card class="m-2">
-  Table for reviews
+  <app-reviews-table></app-reviews-table>
 </mat-card>

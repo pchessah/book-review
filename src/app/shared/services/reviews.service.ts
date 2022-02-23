@@ -18,4 +18,8 @@ export class ReviewsService {
    addReview(review: Review) {
      return this.reviewsRef.add(review);
    }
+
+   getAllReviews() {
+     return this.reviewsRef.valueChanges();
+   }
 }

@@ -14,6 +14,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatTableModule} from '@angular/material/table';
 
 import { AuthService } from './shared/services/auth.service';
 import { ReviewsService } from './shared/services/reviews.service';
@@ -29,6 +30,7 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
 import { AddReviewComponent } from './components/add-review/add-review.component';
+import { ReviewsTableComponent } from './components/reviews-table/reviews-table.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,8 @@ import { AddReviewComponent } from './components/add-review/add-review.component
     SignUpComponent,
     ForgotPasswordComponent,
     VerifyEmailComponent,
-    AddReviewComponent
+    AddReviewComponent,
+    ReviewsTableComponent
   ],
 
   imports: [
@@ -56,6 +59,7 @@ import { AddReviewComponent } from './components/add-review/add-review.component
     MatFormFieldModule,
     MatSelectModule,
     MatInputModule,
+    MatTableModule,
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,

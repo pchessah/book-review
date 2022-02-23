@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import firebase from 'firebase/compat';
 import { MatDialog } from '@angular/material/dialog';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { AddReviewComponent } from '../add-review/add-review.component';
