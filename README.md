@@ -12,6 +12,6 @@ Create account with valid email, create password.
 
 Log in with created email and password to open dashboard page.
 
-A live version has been deployed on : chesa-book-review.vercel.app
+A live version has been deployed on : https://chesa-book-review.vercel.app/
 
 NB: Users cannot edit or delete reviews they have not created.
