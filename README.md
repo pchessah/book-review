@@ -1,1 +1,15 @@
-# BookReviewsApp
+# Book Reviews CRUD App
+
+First clone repostory using https://github.com/pchessah/book-review.git by running on terminal git clone https://github.com/pchessah/book-review.git
+
+Open folder of cloned project on vs code.
+
+Open terminal on vs code, run command 'npm install'
+
+Run 'ng serve'
+
+Create account with valid email, create password.
+
+Log in with created email and password to open dashboard page.
+
+NB: Users cannot edit or delete reviews they have not created.
