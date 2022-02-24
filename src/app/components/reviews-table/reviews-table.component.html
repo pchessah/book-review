@@ -1,6 +1,6 @@
 <h4> Reviews</h4>
 
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" *ngIf="dataSource.length">
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" *ngIf="dataSource.length ;else noReviews">
 
   <!--- Note that these columns can be defined in any order.
         The actual rendered columns are set as a property on the row definition" -->
@@ -48,3 +48,9 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
+
+<ng-template #noReviews>
+  <mat-card>
+    No Reviews Yet 😒
+  </mat-card>
+</ng-template>

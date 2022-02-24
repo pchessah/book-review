@@ -27,7 +27,7 @@
     </mat-form-field>
   </div>
 
-  <div class="form-group">
+  <div class="form-group" *ngIf="mode === 'create'">
    <app-uploads (uploadFilesUpdated)="updateFiles($event)" [basePath]="basePath"></app-uploads>
   </div>
 
@@ -35,6 +35,7 @@
     <button mat-raised-button type="submit" color="primary" [disabled]="!reviewForm.valid">
       Submit {{data.mode == 'create' ? '' : 'Edited'}} Review
     </button>
+    
   </div>
 
 </form>

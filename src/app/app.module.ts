@@ -15,9 +15,12 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatTableModule} from '@angular/material/table';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 import { AuthService } from './shared/services/auth.service';
 import { ReviewsService } from './shared/services/reviews.service';
+import { FileUploadService } from './shared/services/file-upload.service';
+import { NotificationService } from './shared/services/notification.service';
 
 import { environment } from '../environments/environment';
 
@@ -32,7 +35,7 @@ import { VerifyEmailComponent } from './components/verify-email/verify-email.com
 import { AddReviewComponent } from './components/add-review/add-review.component';
 import { ReviewsTableComponent } from './components/reviews-table/reviews-table.component';
 import { UploadsComponent } from './components/uploads/uploads.component';
-import { FileUploadService } from './shared/services/file-upload.service';
+
 
 @NgModule({
   declarations: [
@@ -63,12 +66,13 @@ import { FileUploadService } from './shared/services/file-upload.service';
     MatSelectModule,
     MatInputModule,
     MatTableModule,
+    MatSnackBarModule,
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
   ],
 
-  providers: [AuthService, ReviewsService, FileUploadService],
+  providers: [AuthService, ReviewsService, FileUploadService, NotificationService],
 
   bootstrap: [AppComponent]
 })

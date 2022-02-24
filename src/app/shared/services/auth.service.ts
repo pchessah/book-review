@@ -9,6 +9,7 @@ import {
 import { Router } from '@angular/router';
 import firebase from 'firebase/compat';
 import { User } from '../models/user.model';
+import { NotificationService } from './notification.service';
 
 @Injectable({
   providedIn: 'root',
@@ -20,6 +21,7 @@ export class AuthService {
   constructor(public afs: AngularFirestore, // Inject Firestore service
               public afAuth: AngularFireAuth, // Inject Firebase auth service
               public router: Router,
+              private _notificationService: NotificationService,
               public ngZone: NgZone // NgZone service to remove outside scope warning
   ) {
     /* Saving user data in localstorage when 
@@ -40,6 +42,7 @@ export class AuthService {
     return this.afAuth
       .signInWithEmailAndPassword(email, password)
       .then((result) => {   
+        this._notificationService.openNotification('Signed in ✨!');
         this.router.navigate(['dashboard']);       
         this.SetUserData(result.user);
       })
@@ -52,6 +55,7 @@ export class AuthService {
     return this.afAuth
       .createUserWithEmailAndPassword(email, password)
       .then((result) => {
+        this._notificationService.openNotification('Signed up successfully 🎉!');
         this.router.navigate(['sign-in'])        
         this.SetUserData(result.user);
       })
@@ -65,6 +69,7 @@ export class AuthService {
     return this.afAuth
       .sendPasswordResetEmail(passwordResetEmail)
       .then(() => {
+        this._notificationService.openNotification('Password sent to your email 🔐')
         window.alert('Password reset email sent, check your inbox.');
       })
       .catch((error) => {
@@ -112,9 +117,15 @@ export class AuthService {
   }
   // Sign out
   SignOut() {
-    return this.afAuth.signOut().then(() => {
-      localStorage.removeItem('user');
-      this.router.navigate(['sign-in']);
-    });
+    if (confirm('Are you sure you want to log out?'))
+    {
+      return this.afAuth.signOut().then(() => {
+        localStorage.removeItem('user');
+        this.router.navigate(['sign-in']);
+        this._notificationService.openNotification('Good Bye! 👋');
+      });
+    }
+    return;
+   
   }
 }

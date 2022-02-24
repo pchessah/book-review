@@ -45,7 +45,8 @@ export class UploadsComponent implements OnInit, OnChanges {
 
           this.uploadService.pushFileToStorage(this.basePath, this.currentFileUpload)
                             .subscribe((percentage) => {
-                                                        this.uploadFilesUpdated.emit(this.currentFileUpload);
+                                                        this.percentage = Math.round(percentage ? percentage : 0);
+                                                        this.percentage == 100 ? this.uploadFilesUpdated.emit(this.currentFileUpload): null
                                                         return this.percentage = Math.round(percentage ? percentage : 0);
                                                         }); 
         }

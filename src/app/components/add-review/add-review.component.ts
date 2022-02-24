@@ -16,20 +16,24 @@ export class AddReviewComponent implements OnInit {
   ratingValues = [1, 2, 3, 4, 5];
   basePath!: string;
   uploads:string[] = [];
+  mode: 'create' | 'edit' = 'create';
 
   constructor(private _fb: FormBuilder,
               private _dialogRef: MatDialogRef<AddReviewComponent>,
               @Inject(MAT_DIALOG_DATA) public data: {review: Review, mode: 'create' | 'edit'},) { }
 
   ngOnInit(): void {
+    this.mode = this.data.mode;
+
     const id  = this.data.review ? this.data.review.id : uuidv4();
+
     this.reviewForm = this._fb.group({
       title:  [ this.data.review ? this.data.review.title : '', Validators.required],
       author: [ this.data.review ? this.data.review.author : '', Validators.required],
       review: [this.data.review ? this.data.review.review : '', Validators.required],
       rating: [this.data.review ? this.data.review.rating : '', [Validators.required, Validators.min(1), Validators.max(5)]],
       id:     [id, Validators.required],
-      uploads: [this.data.review ? this.data.review.uploads : [], Validators.required],
+      uploads: [this.data.review ? this.data.review.uploads : []],
     }); 
     
     this.basePath = `/uploads/${id}`
