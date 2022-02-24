@@ -35,8 +35,9 @@ export class FileUploadService {
     this.db.list(basePath).push(fileUpload);
   }
 
-  getFiles(basePath: string) {
-    return this.storage.ref(basePath)
+  getFiles(basePath: string, fileName: string) {
+    const storageRef = this.storage.ref(basePath)
+    return storageRef.child(fileName)
   }
 
   deleteFile(fileUpload: FileUpload, basePath: string): void {

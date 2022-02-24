@@ -20,9 +20,7 @@ export class UploadsComponent implements OnInit, OnChanges {
 
   constructor(private uploadService: FileUploadService) { }
 
-  ngOnInit(): void {
-    this.uploadService.getFiles(this.basePath).getDownloadURL().subscribe(url => { debugger; this.uploadFilesUpdated.emit(url); });
-   }
+  ngOnInit(): void {   }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['basePath'].currentValue) {
@@ -43,13 +41,11 @@ export class UploadsComponent implements OnInit, OnChanges {
 
         if (file) {
           this.currentFileUpload = new FileUpload(file);
+
           this.uploadFilesUpdated.emit(true);
-          this.uploadService.getFiles(this.basePath).getDownloadURL().subscribe(url => { debugger; this.uploadFilesUpdated.emit(url); });
-
-
 
           this.uploadService.pushFileToStorage(this.basePath, this.currentFileUpload).subscribe((percentage) => {
-
+            this.uploadFilesUpdated.emit(true);
             return this.percentage = Math.round(percentage ? percentage : 0);
           });
         }
