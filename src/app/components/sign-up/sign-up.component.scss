@@ -1,0 +1,12 @@
+.redirect{
+  text-decoration: underline;
+  color: blue;
+}
+
+.redirect:hover{
+  cursor: pointer;
+}
+
+form, mat-form-field{
+  width: 100%;
+}
