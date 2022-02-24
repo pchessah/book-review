@@ -1,6 +1,6 @@
 # Book Reviews CRUD App
 
-First clone repostory using https://github.com/pchessah/book-review.git by running on terminal git clone https://github.com/pchessah/book-review.git
+First clone repostory using https://github.com/pchessah/book-review.git ON Github desktop or by running on terminal 'git clone https://github.com/pchessah/book-review.git'
 
 Open folder of cloned project on vs code.
 
