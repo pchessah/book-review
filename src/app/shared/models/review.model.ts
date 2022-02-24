@@ -1,3 +1,5 @@
+import { FileUpload } from "./file-upload.model";
+
 export interface Review {
   title: string;
   author: string;

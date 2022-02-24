@@ -29,6 +29,7 @@ export class DashboardComponent implements OnInit {
           rating: result.review.rating,
           author: result.review.author,
           id: result.review.id,
+          uploads: result.review.uploads,
           userId: this.authService.userData.uid,
           userEmail: this.authService.userData.email
         } as Review;

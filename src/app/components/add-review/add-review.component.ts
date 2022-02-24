@@ -15,6 +15,7 @@ export class AddReviewComponent implements OnInit {
   reviewForm!: FormGroup;
   ratingValues = [1, 2, 3, 4, 5];
   basePath!: string;
+  uploads:string[] = [];
 
   constructor(private _fb: FormBuilder,
               private _dialogRef: MatDialogRef<AddReviewComponent>,
@@ -35,8 +36,10 @@ export class AddReviewComponent implements OnInit {
   }
 
   updateFiles(_event: any) {
-    //this.reviewForm.patchValue({ uploads: files });
-    debugger
+    this.uploads.push(_event.url);  
+
+    this.reviewForm.patchValue({ uploads: this.uploads });
+   
   }
 
   onSubmit(review: Review) {

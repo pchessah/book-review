@@ -33,26 +33,24 @@ export class UploadsComponent implements OnInit, OnChanges {
   }
 
   upload(): void {
-    if (this.selectedFiles) {
-      debugger
-
-      for (var i = 0; i < this.selectedFiles.length; i++) {
+    if (this.selectedFiles) 
+    {
+      for (var i = 0; i < this.selectedFiles.length; i++) 
+      {
         const file: File | null = this.selectedFiles.item(i);
 
-        if (file) {
+        if (file) 
+        {
           this.currentFileUpload = new FileUpload(file);
 
-          this.uploadFilesUpdated.emit(true);
-
-          this.uploadService.pushFileToStorage(this.basePath, this.currentFileUpload).subscribe((percentage) => {
-            this.uploadFilesUpdated.emit(true);
-            return this.percentage = Math.round(percentage ? percentage : 0);
-          });
+          this.uploadService.pushFileToStorage(this.basePath, this.currentFileUpload)
+                            .subscribe((percentage) => {
+                                                        this.uploadFilesUpdated.emit(this.currentFileUpload);
+                                                        return this.percentage = Math.round(percentage ? percentage : 0);
+                                                        }); 
         }
       }
     }
     this.selectedFiles = undefined;
-
   }
-
 }
