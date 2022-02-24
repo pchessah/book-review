@@ -16,6 +16,7 @@ import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatTableModule} from '@angular/material/table';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 import { AuthService } from './shared/services/auth.service';
 import { ReviewsService } from './shared/services/reviews.service';
@@ -67,6 +68,7 @@ import { UploadsComponent } from './components/uploads/uploads.component';
     MatInputModule,
     MatTableModule,
     MatSnackBarModule,
+    MatProgressBarModule,
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,

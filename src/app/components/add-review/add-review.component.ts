@@ -40,10 +40,8 @@ export class AddReviewComponent implements OnInit {
   }
 
   updateFiles(_event: any) {
-    this.uploads.push(_event.url);  
-
-    this.reviewForm.patchValue({ uploads: this.uploads });
-   
+    this.uploads.push(_event);  // update the array with the new uploaded files
+    this.reviewForm.patchValue({ uploads: this.uploads });   
   }
 
   onSubmit(review: Review) {

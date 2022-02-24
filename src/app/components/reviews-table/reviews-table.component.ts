@@ -16,15 +16,23 @@ export class ReviewsTableComponent implements OnInit {
 
   dataSource: Review[] = [];
 
+  currentUser = JSON.parse(localStorage.getItem('user')!);
+
   constructor(private _reviewService: ReviewsService,
-    private _dialog: MatDialog,) { }
+              private _dialog: MatDialog,) { }
 
   ngOnInit(): void {
+ 
     this.getAllReviews();
   }
 
+
   getAllReviews() {
     return this._reviewService.getAllReviews().subscribe((reviews) => this.dataSource = reviews);
+  }
+
+  canEdit(review: Review){
+    return !(review.userEmail === this.currentUser.email);
   }
 
   editReview(review: Review) {
@@ -38,7 +46,7 @@ export class ReviewsTableComponent implements OnInit {
   }
 
   deleteReview(review: Review) {
-    confirm('Are you sure you want to delete this review?') ? this._reviewService.deleteReview(review) : null;    
+    confirm('Are you sure you want to delete this review? 😲') ? this._reviewService.deleteReview(review) : null;    
   }
 
 }

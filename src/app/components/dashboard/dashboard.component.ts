@@ -23,19 +23,20 @@ export class DashboardComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
+        const uploads = result.review.uploads.map((upld: { url: any; }) => upld.url);
+
         const resultObj = {
           title: result.review.title,
           review: result.review.review,
           rating: result.review.rating,
           author: result.review.author,
           id: result.review.id,
-         // uploads: result.review.uploads,
+          uploads: uploads,
           userId: this.authService.userData.uid,
           userEmail: this.authService.userData.email
         } as Review;
 
         if (result.mode == 'create') {
-          // debugger
           this._reviewService.addReview(resultObj);
         }
       }

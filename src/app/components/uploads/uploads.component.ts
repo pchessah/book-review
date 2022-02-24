@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
-import { map } from 'rxjs';
 import { FileUpload } from 'src/app/shared/models/file-upload.model';
 import { FileUploadService } from 'src/app/shared/services/file-upload.service';
 
